@@ -28,12 +28,12 @@
              
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           <i class="icon-money icon-large"></i>&nbsp;Stand Payment
+                           <i class="icon-money icon-large"></i>&nbsp;Student Classes
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-  <li><a href="index.php?page=all_pay2.php">Stand Payment</a></li>
-  <li><a href="index.php?page=all_pay21.php">VAT </a></li>
+  <li><a href="index.php?page=createClass.php">Create Class</a></li>
+
 
 
 
@@ -132,8 +132,8 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-  <li><a href="index.php?page=questions.php">Set Questions</a></li>
-  <li><a href="index.php?page=set_answers.php">Set Answers</a></li>
+  <li><a href="index.php?page=set_questions.php">Set Questions</a></li>
+  <li><a href="index.php?page=answers.php">Set Answers</a></li>
   <li><a href="index.php?page=editquestions.php">Edit Questions</a></li>
 
 

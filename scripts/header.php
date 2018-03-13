@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
 
-        <title>GM58</title>
+        <title>Learning System</title>
         <link href="img/chmsc1.png" rel="icon" type="image">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen">

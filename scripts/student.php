@@ -40,7 +40,7 @@
   exit;
    }
    else{
- $rs = mysql_query("insert into users(name,surname,sex,email,address,username,password,idnumber,status,date,access,department,suspend) values ('$_POST[name]','$_POST[surname]','$_POST[sex]','$_POST[email]','$_POST[address]','$_POST[username]','$pwd','$id_no','1','$date','$_POST[access]','$_POST[branch]','$_POST[classname]')") ;
+ $rs = mysql_query("insert into users(name,surname,sex,email,address,username,password,idnumber,status,date,access,department,suspend) values ('$_POST[name]','$_POST[surname]','$_POST[sex]','$_POST[email]','$_POST[address]','$_POST[username]','$pwd','$id_no','1','$date','3','$_POST[branch]','$_POST[classname]')") ;
   ?>
   <script language="javascript">
  alert("User successfully created");
@@ -91,8 +91,9 @@ function MM_validateForm() { //v4.0
     } if (errors) alert('The following error(s) occurred:\n'+errors);
     document.MM_returnValue = (errors == '');
 } }
-//-->
- </script>
+</script>
+
+
 <style type="text/css">
 
 .style7 {
@@ -139,7 +140,7 @@ function validateEmail(emailField){
 <div class="style4">
   <div align="center">User Registration</div>
 </div>
-<form action="" method="post" name="" onsubmit="MM_validateForm('name','','R','surname','','R','email','','RisEmail','phone','','RisNum','username','','R','password','','R','cpass','','R');return document.MM_returnValue" >
+<form action="" method="post" name="" >
 
    <center>
   <table width="49%" border="0" bgcolor="#FFFFFF" align="center">
@@ -150,6 +151,27 @@ function validateEmail(emailField){
     </div></td>
     </tr>
     <tr>
+      <td>Student Number</td>
+      <td>
+        <input name="username" type="text" id="v"  value="<?php echo "M".date('Y').mt_rand(0,1500) ?>" readonly />       </td>
+        </tr>
+        <tr><td>Class</td><td>
+     <?php
+ 
+$sql="select * from studentclass";
+$rez=mysql_query($sql);
+echo "<select name='classname' id='classname'>";
+?>
+
+<?php
+while($row=mysql_fetch_array($rez,MYSQL_ASSOC)){
+
+ echo "<option value='$row[classname]'>{$row['classname']}</option>"; 
+}
+
+?>
+          </td></tr>
+    <tr>
       <td>Name</td>
       <td>
         <input name="name" type="text" id="name" onkeypress="return lettersOnly(event)" />       </td>
@@ -159,24 +181,9 @@ function validateEmail(emailField){
             <td width="161">
             <input name="surname" type="text" id="surname" onkeypress="return lettersOnly(event)"  />              </td>
     </tr>
-          <tr><td>Branch</td><td>
-          <?php
- 
- $sql="select * from studentclass";
- $rez=mysql_query($sql);
- echo "<select name='classname' id='classname'>";
- ?>
- 
- <?php
- while($row=mysql_fetch_array($rez,MYSQL_ASSOC)){
- 
-  echo "<option value='$row[classname]'>{$row['classname']}</option>"; 
- }
- 
- ?>
-          </td></tr>
+         
           <tr>
-            <td>E mail</td>
+            <td>Parents E mail</td>
             <td>
               <input name="email" type="text" id="email" onblur="validateEmail(this);" />            </td>
           </tr>
@@ -197,11 +204,7 @@ function validateEmail(emailField){
    
     <tr><td colspan="2"><div align="center"><span class="style8"><u>Login Details</u></span></div></td>
     </tr>
-    <tr>
-      <td>Username</td>
-      <td>
-        <input name="username" type="text" id="username"   />             </td>
-      </tr>
+    
           <tr>
             <td width="100">Password</td>
             <td width="161"><span id="sprytextfield1">
@@ -212,12 +215,7 @@ function validateEmail(emailField){
           <tr>
             <td>Confirm </td>
             <td>
-              <input name="cpass" type="password" id="cpass"  />            </td></tr> <tr>
-            <td>Access level</td>
-            <td>
-              <select name="access"><option value="1">Admin</option><option value="2">Teacher</option></select> 
-                     </td></tr>
-         		  <tr>
+              <input name="cpass" type="password" id="cpass"  />            </td></tr>
             <td></td>
             <td>
               <input name="Submit" type="Submit" id="Submit" class="btn btn-info" value="Save"  />            </td>

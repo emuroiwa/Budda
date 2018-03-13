@@ -1,36 +1,22 @@
 
 <?php
-session_start();
-include ('aut.php'); 
-?>
-<?php
-include 'opendb.php';
+//include 'opendb.php';
 if(isset($_POST['Submit'])){
+$department = $_POST['class']; 
 
-
-$rs = mysql_query("select * from users where username = '$_SESSION[username]'");
-while($row = mysql_fetch_array($rs))
-{
-$dept = $row['department'];
-}
-$question = $_POST['question']; 
-$rs1 = mysql_query("select * from questions where question = '$_POST[question]'");
-   $rw = mysql_num_rows($rs1);
-   if($rw == 1){
-   ?>
-  <script language="javascript">
- alert("Question already in use");
- location = 'index.php?page=questions.php'
-  </script>
-  <?php
-  exit;
-   }
-$result = mysql_query("INSERT INTO questions(question,dept,moduleid,username)VALUES('$question','$dept','$_POST[skill]','$_SESSION[username]')") or die (mysql_error());
+   if(ifexisits('studentclass','classname','$department') == 1){
+	   msg('Class already in use');
+	   link('index.php?page=createClass.php'); }  
+	   
+	   
+   
+ 
+$result = mysql_query("INSERT INTO studentclass(classname)VALUES('$department')") or die (mysql_error());
 if ($result )
 {
  ?>
 <script language="javascript">
- alert("Question Successfully Saved");
+ alert("Successfully Saved");
 </script>
 <?php
 				 }
@@ -52,8 +38,7 @@ if ($result )
 .style1 {font-size: 12px}
 -->
 </style>
-<script language="JavaScript" src="../../mail/scripts/gen_validatorv31.js" type="text/javascript"></script>
-<link href="../../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+
 
 <script type="text/javascript">
 <!--
@@ -145,32 +130,40 @@ table.cool td {
 </style>
 <body>
 
-<form action="" method="post" name="qualification_form" onSubmit="MM_validateForm('question','','R');return document.MM_returnValue">
-<table width="100%" border="0" align="center" style="border-bottom:3px solid #000000;">
+<form action="" method="post" name="qualification_form" onSubmit="MM_validateForm('class','','R');return document.MM_returnValue">
+<table width="100%" border="0" align="center" style="border-bottom:3px solid #000000;" class="table table-bordered table-hover">
  
  
       <tr>
-        <td colspan="2" align="center"><div align="center"><span class="style7">Add New Question</span></div></td>
+        <td><div align="center"><span class="style7">Add New Class
+        </span></div></td>
+       
       </tr>
-  
-<tr>
-  <td width="39%"> <span class="style1 style9">Questions</span></td>
-  <td width="61%">
-    <input type="text" name="question" id="question" size="50"  /></td>
-</tr>
- <tr>
-            <td width="140"><span class="style12 style1">Question Skill Level</span></td>
-            <td width="412">
-			<select name="skill">
-<option value="1">Beginner</option>
-<option value="2"> Intermidate</option>
-<option value="3">Expert</option>
-</select>
-              <input type="submit" name="Submit" size="30"  value="Save"/></td>
-    </tr></table>
-</form>
-          
+      
+    </table> 
 
+ <table width="100%">
+</table>
+
+
+
+  
+  <table width="100%" align="center">
+  
+
+<tr>
+  <td width="27%"> <span class="style1 style9">Class</span></td>
+  <td width="73%">
+    <input type="text" name="class" id="class" size="30"  required="required"  /></td>
+</tr>
+      
+          
+</td></tr>
+
+<tr><td colspan="2"  align="center"><input type="submit" name="Submit" size="30"  value="Save"/></td>
+</tr>
+</table>
+</form>
 
 </body>
 
