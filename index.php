@@ -60,7 +60,7 @@ echo("<SCRIPT LANGUAGE='JavaScript'> window.alert('Wrong Username And Password C
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>GM 58 SYSTEM</title>
+        <title>Learning SYSTEM</title>
         
         <!-- Our CSS stylesheet file -->
         <link rel="stylesheet" href="assets/css/styles.css" />
@@ -88,7 +88,7 @@ echo("<SCRIPT LANGUAGE='JavaScript'> window.alert('Wrong Username And Password C
 
         <footer>
 	        
-            <div align="center"><font color="white">System developed by <a href="" target="_blank">Divine Developers.</a></font></div>
+            <div align="center"><font color="white">System developed by <a href="" target="_blank">Macmillan.</a></font></div>
         </footer>
         
         <!-- JavaScript includes -->
