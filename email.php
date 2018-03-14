@@ -142,8 +142,8 @@ function SendEmail($body,$email){
 															<table border="0" cellpadding="30" cellspacing="0" width="100%">
 																<tr>
 																	<td align="center" valign="top" class="textContent">
-																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">GM58 Password Reset</h1>
-																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">Password Reset</h2>
+																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Learning System</h1>
+																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">Learning System</h2>
 	
 																	</td>
 																</tr>
@@ -215,9 +215,9 @@ function SendEmail($body,$email){
 																				<td valign="top" class="textContent">
 																				
 																	Good Day,<br>
-Your New Password is
+
 <strong>'.$body.'</strong><br>
-Please Login To GM58 using your new password.
+
 <br>
 
 																	
@@ -668,11 +668,11 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->addReplyTo('gm58system@gmail.com', 'GM58');
-$mail->setFrom('gm58system@gmail.com', 'GM58'); 
+$mail->addReplyTo('gm58system@gmail.com', 'Learning');
+$mail->setFrom('gm58system@gmail.com', 'Learning'); 
 $mail->Username = "gm58system@gmail.com";
 $mail->Password = "password1*";
-$mail->Subject = "GM58 User Password Reset";
+$mail->Subject = "Learning System";
 $mail->Body = $body1;
 $mail->AddAddress($email);
 //$mail->AddAddress("amagobeya@ecbinternational.biz");

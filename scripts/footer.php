@@ -2,7 +2,7 @@
 <div class="navbar  navbar-inverse">
     <div class="navbar-inner">
         <div class="footerindex">
-            <center>GM 58 by <a href="# target="_blank">Macmillan</a></center>
+            <center>Learning by <a href="# target="_blank">Macmillan</a></center>
 
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-header">

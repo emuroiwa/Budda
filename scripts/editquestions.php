@@ -49,7 +49,7 @@ border-bottom-color: black;
 	font-size: 16px;
 	font-style: italic;
 }
--->
+
     </style>
     <script src="mootools.js" type="text/javascript" charset="utf-8"></script>	
 <script language="javascript">
@@ -90,7 +90,7 @@ while($rw = mysql_fetch_array($rs))
 $dept = $rw['department'];
 }
  
-$sql="select * from questions where dept = '$dept'";
+$sql="select * from questions where username = '$_SESSION[username]'";
 $rez=mysql_query($sql);
 echo "<select name='qnid' id='qnid' required>";
 ?>

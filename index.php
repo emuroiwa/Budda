@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 include 'opendb.php';
 include 'functions.php';
 if(isset($_POST['submit'])){
@@ -22,7 +22,7 @@ $query = "SELECT * from users where username='$username' AND password = '$passwo
 $result = mysql_query($query);
 $rows=mysql_fetch_array($result);
 $access=$rows['access'];
-$branch=$rows['department'];
+$branch=$rows['studentclass'];
 $email=$rows['email'];
 $q1=$rows['name'];
 $q2=$rows['surname'];
@@ -32,7 +32,7 @@ $_SESSION['username'] = $username;
 $_SESSION['name'] = $full;
 $_SESSION['access'] = $access;
 $_SESSION['email'] = $email;
-$_SESSION['branch'] = $branch;
+$_SESSION['class'] = $branch;
 
 if(!$result)
 {

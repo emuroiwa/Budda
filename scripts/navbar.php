@@ -1,4 +1,22 @@
+<?php //include '../functions.php';
 
+function getRandomString($length = 6)
+{
+$validCharacters = "0123456789";
+$validCharNumber = strlen($validCharacters);
+
+for ($i = 0; $i < $length; $i++)
+{
+$index = mt_rand(0, $validCharNumber - 1);
+$result .= $validCharacters[$index];
+
+}
+
+return $result;
+
+}
+
+?>
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
@@ -32,7 +50,7 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-  <li><a href="index.php?page=createClass.php">Create Class</a></li>
+  <li><a href="index.php?page=createClass.php">Create Class </a></li>
 
 
 
@@ -40,88 +58,34 @@
                         </ul>
                     </li>
              
-                   <!-- <li><a href="file.php"><i class="icon-folder-open icon-large"></i>&nbsp;File</a></li>-->
                 
-                    
-                    <!---->
-                       <li class="dropdown">
+                       
+                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-folder-close-alt icon-large"> </i>&nbsp;Ledger
+                           <i class="icon-money icon-large"></i>&nbsp;Users
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                        
-                     <li><a href="index.php?page=legdertable.php">Create Ledger</a></li>
-                     <li><a href="index.php?page=cashoutlegdertable.php">Create CashOut Ledger</a></li>
- <!--  <li><a href="index.php?page=searchstatement.php" >Comprehensive Ledger Stands In progress</a></li>
-    <li><a href="statement_overall_paid.php" target="_blank">Comprehensive Ledger Paid Stands</a></li> 
-     <li><a href="statement_reserved.php" target="_blank">Comprehensive reserved Stands</a></li>
--->
+  <li><a href="index.php?page=registration.php">Create User</a></li>
 
-
-                        </ul>
-                    </li>
-                    <!---->       <!---->
-                  <!--     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-folder-close-alt icon-large"> </i>&nbsp;SMS
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-             <li>
-		<a href="./index.php?page=bsms.php">Bulk SMS</a>
-	</li><li><a href="index.php?page=sms_date.php" class="active">Specific date</a></li>
-    <li><a href="index.php?page=smscash.php" class="active">Settings</a></li>
-    <li><a href="http://193.105.74.59/api/command?username=TDInvestment&password=tS8ff1Cg1&cmd=CREDITS" class="active" target="_blank">Enquire sms Balance</a></li>
-
-
-
-                        </ul>
-                    </li>-->
-                    <!---->
-                    <!---->       <!---->
-                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           <i class="icon-group icon-large"></i>&nbsp;Clients
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-  <li><a href="index.php?page=add_client_to_stand.php">Add Second party owner</a></li>
-  <li><a href="index.php?page=clients.php">View Clients</a></li>
 
 
 
                         </ul>
                     </li>
-                    <!---->   <!---->
-                       <li class="dropdown">
+           
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-folder-close-alt icon-large"> </i>&nbsp;Stands
+                           <i class="icon-money icon-large"></i>&nbsp;Students
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-<li>
-		<a href="./index.php?page=stand.php">NEW Stands</a>
-	</li>       <li><a href="index.php?page=reserve.php">Reserved stands</a></li>     <li><a href="index.php?page=location.php">Add Location</a></li> 
+  <li><a href="index.php?page=student.php">Create Student</a></li>
+
 
 
 
                         </ul>
-                           <li><a href="index.php?page=amendments.php"><i class="icon-folder-close-alt icon-large"></i>&nbsp;Amendments</a></li> 
-                    </li>
-                    <!----> <li><a href="reports"><i class="icon-folder-close-alt icon-large"></i>Reports</a></li>   <!---->
-                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-folder-close-alt icon-large"> </i>&nbsp;Settings
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a href="index.php?page=registration.php">Add Users</a></li>
-  <li><a href="index.php?page=GetUsers.php">Edit Users</a></li>
-<li><a href="index.php?page=AddEmails.php">Add Emails</a></li>
-<li><a href="index.php?page=GetEmails.php">Remove Emails</a></li>
-<li><a href="index.php?page=backup.php">Backup</a></li>
-                             </ul>
                     </li>
           
                     <?php }if($_SESSION['access']==2){?>
@@ -132,13 +96,14 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-  <li><a href="index.php?page=set_questions.php">Set Questions</a></li>
+  <li><a href="index.php?page=questions.php">Set Questions</a></li>
   <li><a href="index.php?page=answers.php">Set Answers</a></li>
   <li><a href="index.php?page=editquestions.php">Edit Questions</a></li>
 
 
                         </ul>
                     </li>
+                    
                    <!-- <li><a href="file.php"><i class="icon-folder-open icon-large"></i>&nbsp;File</a></li>-->
                 
                     
@@ -146,7 +111,21 @@
          
                     <?php }
 					if($_SESSION['access']==3){?>
-                    <!----> <li><a href="index.php?page=testpage1.php"><i class="icon-folder-close-alt icon-large"></i>Mock Exam</a></li>   <!---->
+                    <!----> <li><a href="index.php?page=testpage1.php&code=<?php echo getRandomString();?>"><i class="icon-folder-close-alt icon-large"></i>Mock Exam</a></li>   <!---->
+
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                           <i class="icon-money icon-large"></i>&nbsp;Mock Exam Book
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+  <li><a href="index.php?page=book.php">Book Exam</a></li>
+  <li><a href="index.php?page=cancel.php">Cancel Exam</a></li>
+  <li><a href="index.php?page=viewresults.php">Exam Results</a></li>
+
+
+                        </ul>
+                    </li>
  <?php }?>
               <!--      <li><a href="index.php?page=changepass.php" class="active">Help</a></li>-->
 

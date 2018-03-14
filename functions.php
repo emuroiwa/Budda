@@ -408,6 +408,13 @@ payment.stand = '$id' and payment.payment_type = 'Credit' ")or die(mysql_query()
 	}
 	 ///*******************************************************************************************************************************************************************
 
+	 function countTable($sql){
+		$r2=mysql_query($sql)or die(mysql_query());
+
+		return mysql_num_rows($r2);
+		}
+	 ///*******************************************************************************************************************************************************************
+
 	function getdeposit($id){
 	/*$r2=mysql_query("SELECT
 Sum(payment.cash) AS credit

@@ -61,9 +61,10 @@ return ((num >= 0)&&(num < 10))?"0"+num:num+"";
 </script>
 <p>Time Left for the examination: <span id='CountDownPanel' style="background-color: #FFFF00"></span>  
 <?php
-	include 'opendb.php';
 	
-    $rs = mysql_query("select * from questions where moduleid = '$_REQUEST[moduleid]' ORDER BY RAND() LIMIT 25");
+	
+	$rs = mysql_query("SELECT 	*,questions.id qid FROM `questions` INNER JOIN studentclass INNER JOIN users on studentclass.classname=users.studentclass and questions.username= users.username where classname='$_SESSION[class]' ORDER BY RAND() ");
+	
 	$rz = mysql_num_rows($rs);
 	$counter = 0; 
 	while ($counter < $rz) 
@@ -77,7 +78,9 @@ return ((num >= 0)&&(num < 10))?"0"+num:num+"";
     <tr><td width="50%"><strong><?php echo $counter." ".$rw['question']; ?>
     </strong></td></tr> </table>
      <?php
-	$res = mysql_query("select * from answers where questionid = '$rw[id]'");
+	// echo "select * from answers where questionid = '$rw[qid]'";
+//	echo $rw['qid'];
+	$res = mysql_query("select * from answers where questionid = '$rw[qid]'");
 	
 	while($row = mysql_fetch_array($res))
 	 {
@@ -86,7 +89,7 @@ return ((num >= 0)&&(num < 10))?"0"+num:num+"";
      
 <form method="post" id="myform" name="myform" action="index.php?page=results.php&code=<?php echo $_REQUEST['code']; ?>" >
    <table width="100%" border="0" align="center">
-      <tr><td width="4%"><input type="radio" name="answerid<?php echo $rw['id']; ?>" id="answerid<?php echo $rw['id']; ?>" value="<?php echo $row['id']; ?>" /><?php echo $row['symbolid'].": ".$row['answer']; ?></td></tr> <?php
+      <tr><td width="4%"><input type="radio" name="answerid<?php echo $rw['qid']; ?>" id="answerid<?php echo $rw['qid']; ?>" value="<?php echo $row['id']; ?>" /><?php echo $row['symbolid'].": ".$row['answer']; ?></td></tr> <?php
 		 }
 		 
 		 

@@ -3,3 +3,13 @@
 03/13/2018 - 06:03:33 - admin - User Login 
 03/13/2018 - 08:03:23 - admin - Logout | User = admin admin
 03/13/2018 - 08:03:31 - teacher - User Login 
+03/13/2018 - 18:03:25 - teacher - Logout | User = Tendai Mashakda
+03/13/2018 - 18:03:29 - admin - User Login 
+03/13/2018 - 18:03:25 - admin - Logout | User = admin admin
+03/13/2018 - 18:03:29 - admin - User Login 
+03/13/2018 - 18:03:55 - admin - Logout | User = admin admin
+03/13/2018 - 18:03:34 - teacher - User Login 
+03/13/2018 - 18:03:06 - teacher - Logout | User = Tendai Mashakda
+03/13/2018 - 18:03:14 - student - User Login 
+03/13/2018 - 18:03:05 - student - Logout | User = CWP Muroiwa
+03/13/2018 - 18:03:15 - student - User Login 

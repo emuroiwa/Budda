@@ -136,9 +136,7 @@ function validateEmail(emailField){
 
 }
 </script>
-<div class="style4">
-  <div align="center">User Registration</div>
-</div>
+
 <form action="" method="post" name="" onsubmit="MM_validateForm('name','','R','surname','','R','email','','RisEmail','phone','','RisNum','username','','R','password','','R','cpass','','R');return document.MM_returnValue" >
 
    <center>

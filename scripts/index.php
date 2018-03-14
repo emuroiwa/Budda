@@ -3,7 +3,7 @@ include('header.php'); ?>
 <?php
 include '../opendb.php';
 include '../functions.php';
-
+include '../email.php';
 include ('aut.php');
 
 ?>

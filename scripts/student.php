@@ -137,9 +137,7 @@ function validateEmail(emailField){
 
 }
 </script>
-<div class="style4">
-  <div align="center">User Registration</div>
-</div>
+
 <form action="" method="post" name="" >
 
    <center>
