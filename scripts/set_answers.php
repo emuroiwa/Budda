@@ -30,12 +30,12 @@ include ('aut.php');
 		{
 		$status = '0';
 		}
-		mysql_query("INSERT into answers(id,questionid,symbolid,answer,status) values(NULL,'$_REQUEST[qnid]','$symbol','$answer','$status')");
+		mysql_query("INSERT into answers(id,questionid,symbolid,answer,status,examtype) values(NULL,'$_REQUEST[qnid]','$symbol','$answer','$status','$_GET[type]')");
 		
 		?>
         <script language="javascript">
 		alert("Answers successfully entered into the database");
-		window.location = 'index.php?page=answers.php'
+		window.location = 'index.php?page=answers.php&type=<?php echo $_GET['type']?>'
 		</script>
         <?php
 		}
@@ -45,7 +45,7 @@ include ('aut.php');
 ?>
 <?php
 		include 'opendb.php';
-		$rs = mysql_query("select * from questions where id = '$_REQUEST[qnid]'");
+		$rs = mysql_query("select * from questions where id = '$_REQUEST[qnid]' and examtype='$_GET[type]'");
 		while($rw = mysql_fetch_array($rs))
 		{
 		$question = $rw['question'];
@@ -53,11 +53,7 @@ include ('aut.php');
 		}
 		
 ?>
-<style type="text/css">
-<!--
-.style1 {font-style: italic}
--->
-</style>
+
 
 
 <script type="text/javascript">

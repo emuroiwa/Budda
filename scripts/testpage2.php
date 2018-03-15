@@ -62,12 +62,9 @@ return ((num >= 0)&&(num < 10))?"0"+num:num+"";
 <p>Time Left for the examination: <span id='CountDownPanel' style="background-color: #FFFF00"></span>  
 <?php
 	
-	if($_GET['type']=="full"){
-	$rs = mysql_query("SELECT 	*,questions.id qid FROM `questions` INNER JOIN studentclass INNER JOIN users on studentclass.classname=users.studentclass and questions.username= users.username where classname='$_SESSION[class]' and examtype='$_GET[type]'  ORDER BY RAND() limit  ".getLimit("1"));
-	}
-	else{
-	$rs = mysql_query("SELECT 	*,questions.id qid FROM `questions` INNER JOIN studentclass INNER JOIN users on studentclass.classname=users.studentclass and questions.username= users.username where classname='$_SESSION[class]' and examtype='$_GET[type]' ORDER BY RAND() ");
-	}
+	
+	$rs = mysql_query("SELECT 	*,questions.id qid FROM `questions` INNER JOIN studentclass INNER JOIN users on studentclass.classname=users.studentclass and questions.username= users.username where classname='$_SESSION[class]' ORDER BY RAND() ");
+	
 	$rz = mysql_num_rows($rs);
 	$counter = 0; 
 	while ($counter < $rz) 
@@ -90,7 +87,7 @@ return ((num >= 0)&&(num < 10))?"0"+num:num+"";
 
 	  ?>
      
-<form method="post" id="myform" name="myform" action="index.php?page=results.php&code=<?php echo $_REQUEST['code']; ?>&type=<?php echo $_REQUEST['type']; ?>" >
+<form method="post" id="myform" name="myform" action="index.php?page=results.php&code=<?php echo $_REQUEST['code']; ?>" >
    <table width="100%" border="0" align="center">
       <tr><td width="4%"><input type="radio" name="answerid<?php echo $rw['qid']; ?>" id="answerid<?php echo $rw['qid']; ?>" value="<?php echo $row['id']; ?>" /><?php echo $row['symbolid'].": ".$row['answer']; ?></td></tr> <?php
 		 }

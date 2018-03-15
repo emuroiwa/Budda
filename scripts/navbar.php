@@ -96,9 +96,22 @@ return $result;
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-  <li><a href="index.php?page=questions.php">Set Questions</a></li>
-  <li><a href="index.php?page=answers.php">Set Answers</a></li>
-  <li><a href="index.php?page=editquestions.php">Edit Questions</a></li>
+  <li><a href="index.php?page=questions.php&type=mock">Set Questions</a></li>
+  <li><a href="index.php?page=answers.php&type=mock">Set Answers</a></li>
+  <li><a href="index.php?page=editquestions.php&type=mock">Edit Questions</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                           <i class="icon-money icon-large"></i>&nbsp;Full Exam
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+  <li><a href="index.php?page=questions.php&type=full">Set Questions</a></li>
+  <li><a href="index.php?page=answers.php&type=full">Set Answers</a></li>
+  <li><a href="index.php?page=editquestions.php&type=full">Edit Questions</a></li>
 
 
                         </ul>
@@ -111,21 +124,9 @@ return $result;
          
                     <?php }
 					if($_SESSION['access']==3){?>
-                    <!----> <li><a href="index.php?page=testpage1.php&code=<?php echo getRandomString();?>"><i class="icon-folder-close-alt icon-large"></i>Mock Exam</a></li>   <!---->
+                    <!----> <li><a href="index.php?page=testpage1.php&type=mock&code=<?php echo getRandomString();?>"><i class="icon-folder-close-alt icon-large"></i>Mock Exam</a></li>   <!---->
 
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                           <i class="icon-money icon-large"></i>&nbsp;Mock Exam Book
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-  <li><a href="index.php?page=book.php">Book Exam</a></li>
-  <li><a href="index.php?page=cancel.php">Cancel Exam</a></li>
-  <li><a href="index.php?page=viewresults.php">Exam Results</a></li>
-
-
-                        </ul>
-                    </li>
+                        <!----> <li><a href="index.php?page=testpage1.php&type=full&code=<?php echo getRandomString();?>"><i class="icon-folder-close-alt icon-large"></i>Full Exam</a></li>   <!---->
  <?php }?>
               <!--      <li><a href="index.php?page=changepass.php" class="active">Help</a></li>-->
 

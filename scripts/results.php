@@ -22,7 +22,7 @@ $rs2 = mysql_query("INSERT INTO `correctQuestions` (`questionid`, `student`, `co
 	 $rs1 = mysql_query("select * from answers where id ='$answerid'");
 	 $rw1 += mysql_num_rows($rs1);
 	  }
-	  $percentage = (($rw / countTable("select * from questions INNER JOIN users on questions.username=users.username and users.studentclass='$_SESSION[class]'")) * 100);
+	  $percentage = (($rw / countTable("select * from questions INNER JOIN users on questions.username=users.username and users.studentclass='$_SESSION[class]' and examtype='$_GET[type]'")) * 100);
 	//   echo "select * from questions INNER JOIN users on questions.username=users.username and users.studentclass='$_SESSION[grade]'";
 	//   exit;
 	  if($percentage > 50)
@@ -41,7 +41,7 @@ $rs2 = mysql_query("INSERT INTO `correctQuestions` (`questionid`, `student`, `co
  $a='The Following are '. $_SESSION['name'] .' results for the Online Exam  <br>
    
   <p style="color:red" align="center"> '.$msg.';  </p>
-   <p align="center" class="style7">Total Question Asked:  '.countTable("select * from questions INNER JOIN users on questions.username=users.username and users.studentclass='$_SESSION[class]'").'
+   <p align="center" class="style7">Total Question Asked:  '.countTable("select * from questions INNER JOIN users on questions.username=users.username and users.studentclass='$_SESSION[class]' and examtype='$_GET[type]'").'
    <p align="center" class="style7">Mark Attatained :  '. $rw .'
    <p align="center" class="style7">Percentage : '.$percentage .'%
    

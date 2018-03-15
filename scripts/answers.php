@@ -1,5 +1,5 @@
 
-	    <form name="form1" method="post" action="index.php?page=set_answers.php">
+	    <form name="form1" method="post" action="index.php?page=set_answers.php&type=<?php echo $_GET['type'];?> ">
 	   
 	  
 	  <table width="100%" border="0" cellpadding="0" cellspacing="5">
@@ -13,7 +13,7 @@
               <?php 
 include 'opendb.php';
 
-$sql="select * from questions where username = '$_SESSION[username]' and questions.id NOT IN(select qnid from tmp_001)";
+$sql="select * from questions where username = '$_SESSION[username]' and examtype='$_GET[type]' and questions.id NOT IN(select qnid from tmp_001)";
 
 $rez=mysql_query($sql);
 echo "<select name='qnid' id='qnid' required>";

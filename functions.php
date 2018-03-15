@@ -132,6 +132,14 @@ return true;
   }
   return $lastmonth;
 	}
+	
+	function getLimit($id){
+		$lastdate = mysql_query("SELECT moduleid,COUNT(moduleid) xxx FROM `questions` WHERE moduleid='$id' GROUP BY moduleid")or die(mysql_query());
+	 while($rwdate = mysql_fetch_array($lastdate, MYSQL_ASSOC)){
+		$lastmonth=$rwdate['xxx'];
+		}
+		return $lastmonth;
+		}
 		  ///*******************************************************************************************************************************************************************
 
 		function CheckBalance($id){

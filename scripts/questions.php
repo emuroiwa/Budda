@@ -14,7 +14,7 @@ while($row = mysql_fetch_array($rs))
 $dept = $row['department'];
 }
 $question = $_POST['question']; 
-$rs1 = mysql_query("select * from questions where question = '$_POST[question]'");
+$rs1 = mysql_query("select * from questions where question = '$_POST[question]' and examtype='$_GET[type]'");
    $rw = mysql_num_rows($rs1);
    if($rw == 1){
    ?>
@@ -25,7 +25,7 @@ $rs1 = mysql_query("select * from questions where question = '$_POST[question]'"
   <?php
   exit;
    }
-$result = mysql_query("INSERT INTO questions(question,dept,moduleid,username)VALUES('$question','$dept','$_POST[skill]','$_SESSION[username]')") or die (mysql_error());
+$result = mysql_query("INSERT INTO questions(question,dept,moduleid,username,examtype)VALUES('$question','$dept','$_POST[skill]','$_SESSION[username]','$_GET[type]')") or die (mysql_error());
 if ($result )
 {
  ?>
