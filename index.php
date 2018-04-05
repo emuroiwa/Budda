@@ -36,7 +36,7 @@ $_SESSION['class'] = $branch;
 
 if(!$result)
 {
-	die( "\n\ncould'nt send the query because".mysql_error());
+	die( "\n\ncould'nt send the query because test source tree".mysql_error());
 	exit;
 }
 	$row = mysql_num_rows($result);
